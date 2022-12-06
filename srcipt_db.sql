@@ -15,40 +15,34 @@ CREATE TABLE "Usuarios" (
 	"contraseña"	TEXT,
 	"nombre"	TEXT,
 	"apellido"	TEXT,
-	"esActivo"	INTEGER NOT NULL,
-	"mail"	REAL,
+	"mail"	TEXT,
 	"dni"	TEXT,
 	"fechaNacimiento"	TEXT,
 	"idRol"	INTEGER,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("idRol") REFERENCES "Roles"("idRol")
+	"activo"	INTEGER DEFAULT 0,
+	FOREIGN KEY("idRol") REFERENCES "Roles"("idRol"),
+	PRIMARY KEY("id" AUTOINCREMENT)
 )
 
 CREATE TABLE "Salas" (
 	"id"	INTEGER NOT NULL,
 	"nombre"	TEXT,
-	"filas"	INTEGER,
-	"butaca_fila"	INTEGER,
-	"tipo"	TEXT,
+	"capacidad"	INTEGER DEFAULT 0,
+	"formato"	TEXT,
 	PRIMARY KEY("id" AUTOINCREMENT)
 )
 
+
 CREATE TABLE "Reservas" (
 	"id"	INTEGER NOT NULL,
-	"hora"	TEXT,
-	"sala"	INTEGER,
-	"pelicula"	INTEGER,
-	"usuario"	INTEGER,
+	"idFuncion"	INTEGER,
+	"idUsuario"	INTEGER,
 	"fecha"	TEXT,
-	"precio"	INTEGER,
-	"estado"	INTEGER DEFAULT 0,
-	"butaca"	INTEGER,
-	FOREIGN KEY("butaca") REFERENCES "Butacas"("id"),
-	FOREIGN KEY("sala") REFERENCES "Salas"("id"),
-	FOREIGN KEY("pelicula") REFERENCES "Peliculas"("id"),
-	FOREIGN KEY("usuario") REFERENCES "Usuarios"("id"),
-	FOREIGN KEY("precio") REFERENCES "Descuentos"("id"),
-	PRIMARY KEY("id" AUTOINCREMENT)
+	"precio"	REAL DEFAULT 0,
+	"idButaca"	INTEGER,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("idFuncion") REFERENCES "Funciones"("id"),
+	FOREIGN KEY("idUsuario") REFERENCES "Usuarios"("id")
 )
 
 
@@ -56,7 +50,6 @@ CREATE TABLE "Descuentos" (
 	"id"	INTEGER NOT NULL,
 	"dia"	TEXT,
 	"tasa"	REAL,
-	"estado"	INTEGER DEFAULT 0,
 	PRIMARY KEY("id" AUTOINCREMENT)
 )
 
@@ -69,20 +62,22 @@ CREATE TABLE "Roles" (
 )
 
 
-CREATE TABLE "HistorialEntradas" (
+CREATE TABLE "Funciones" (
 	"id"	INTEGER NOT NULL,
-	"usuario"	INTEGER,
 	"fecha"	TEXT,
-	"reserva"	INTEGER,
-	PRIMARY KEY("id"),
-	FOREIGN KEY("usuario") REFERENCES "Usuarios"("id"),
-	FOREIGN KEY("reserva") REFERENCES "Reservas"("id")
+	"idSala"	INTEGER,
+	"idPelicula"	INTEGER,
+	"hora"	TEXT,
+	FOREIGN KEY("idSala") REFERENCES "Salas"("id"),
+	FOREIGN KEY("idPelicula") REFERENCES "Peliculas"("id"),
+	PRIMARY KEY("id" AUTOINCREMENT)
 )
 
 CREATE TABLE "Butacas" (
 	"id"	INTEGER NOT NULL,
 	"fila"	INTEGER,
-	"columna"	INTEGER,
-	"estado"	INTEGER NOT NULL DEFAULT 1,
+	"numero"	INTEGER,
+	"idSala"	INTEGER,
+	FOREIGN KEY("idSala") REFERENCES "Salas"("id"),
 	PRIMARY KEY("id" AUTOINCREMENT)
 )
