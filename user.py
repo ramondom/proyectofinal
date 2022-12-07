@@ -178,7 +178,7 @@ class User(tk.Toplevel):
         GButton_825["justify"] = "center"
         GButton_825["text"] = "Aceptar"
         GButton_825.place(x=270,y=370,width=70,height=25)
-        GButton_825["command"] = self.GButton_825_command
+        GButton_825["command"] = self.aceptar
         
         GButton_341=tk.Button(self)
         GButton_341["bg"] = "#f0f0f0"
@@ -188,7 +188,7 @@ class User(tk.Toplevel):
         GButton_341["justify"] = "center"
         GButton_341["text"] = "Cancelar"
         GButton_341.place(x=350,y=370,width=70,height=25)
-        GButton_341["command"] = self.GButton_341_command        
+        GButton_341["command"] = self.cancelar        
 
     def get_value(self, name):
         return self.nametowidget(name).get()
@@ -196,10 +196,10 @@ class User(tk.Toplevel):
     def get_index(self, name):
         return self.nametowidget(name).current() + 1
 
-    def GButton_341_command(self):
+    def cancelar(self):
         self.destroy()
 
-    def GButton_825_command(self):
+    def aceptar(self):
         try:            
             apellido = self.get_value("txtApellido")
             nombre = self.get_value("txtNombre")            
