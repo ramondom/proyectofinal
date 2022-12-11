@@ -1,7 +1,8 @@
+from tkinter import *
 import tkinter as tk
 import tkinter.font as tkFont
 
-class account(tk.Toplevel):
+class account(Toplevel):
     def __init__(self,master = None):
         super().__init__(master)
         self.master = master

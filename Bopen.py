@@ -1,23 +1,23 @@
 import tkinter as tk
 import tkinter.font as tkFont
 from Clogin import login
-from Daccount import account
+from dal.db import Db
 
 class App:
-    def __init__(self,ventana,root):
+    def __init__(self, root, title):
         self.root = root
         #setting title
-        ventana.title("Cinemark")
+        root.title(title)
         #setting window size
         width=483
         height=156
-        screenwidth = ventana.winfo_screenwidth()
-        screenheight = ventana.winfo_screenheight()
+        screenwidth = root.winfo_screenwidth()
+        screenheight = root.winfo_screenheight()
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
-        ventana.geometry(alignstr)
-        ventana.resizable(width=False, height=False)
+        root.geometry(alignstr)
+        root.resizable(width=False, height=False)
 
-        etiqueta=tk.Label(ventana)
+        etiqueta=tk.Label(root)
         etiqueta["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='Times',size=12)
         etiqueta["font"] = ("calibri",14,"bold")
@@ -27,7 +27,7 @@ class App:
         etiqueta["relief"] = "flat"
         etiqueta.place(x=120,y=10,width=237,height=30)
 
-        btn_open=tk.Button(ventana)
+        btn_open=tk.Button(root)
         btn_open["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='Times',size=10)
         btn_open["font"] = ("calibri",12,"bold")
@@ -37,7 +37,7 @@ class App:
         btn_open.place(x=70,y=80,width=157,height=30)
         btn_open["command"] = self.open_app
 
-        btn_close=tk.Button(ventana)
+        btn_close=tk.Button(root)
         btn_close["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='Times',size=10)
         btn_close["font"] = ("calibri",12,"bold")
@@ -54,11 +54,13 @@ class App:
 
     def close_app(self):
         print("close")
-        ventana.destroy()
+        root.destroy()
 
 if __name__ == "__main__":
-    ventana = tk.Tk()
-    app = App(ventana,root=ventana)
-    ventana.iconbitmap(default="zcinemark.ico")
-
-    ventana.mainloop()
+    #Db.tablas()
+    #Db.reg_tablas()
+    project = "cinemark"
+    root = tk.Tk()
+    app = App(root, project.capitalize())
+    root.iconbitmap(default="zcinemark.ico")
+    root.mainloop()
