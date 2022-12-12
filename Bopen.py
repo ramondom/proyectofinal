@@ -49,11 +49,7 @@ class App:
         btn_close.place(x=250,y=80,width=152,height=30)
         btn_close["command"] = self.close_app
 
-    def get_value(self,name):
-        return 
-
     def open_app(self):
-        nombre = 
         login(self.root)
 
 
