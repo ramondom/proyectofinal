@@ -2,6 +2,8 @@ import tkinter as tk
 import tkinter.font as tkFont
 from Clogin import login
 from dal.db import Db
+import string
+
 
 class App:
     def __init__(self, root, title):
@@ -47,8 +49,11 @@ class App:
         btn_close.place(x=250,y=80,width=152,height=30)
         btn_close["command"] = self.close_app
 
+    def get_value(self,name):
+        return 
+
     def open_app(self):
-        print("open")
+        nombre = 
         login(self.root)
 
 
