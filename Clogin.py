@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
 from Daccount import account
+import bll.usuarios as user
 
 class login(tk.Toplevel):
     def __init__(self, master=None):
@@ -72,7 +73,7 @@ class login(tk.Toplevel):
         btn_inicio["justify"] = "center"
         btn_inicio["text"] = "iniciar sesion"
         btn_inicio.place(x=20,y=280,width=320,height=30)
-        btn_inicio["command"] = self.GButton_310_command
+        btn_inicio["command"] = self.iniciar_sesion
 
         GLabel_318=tk.Label(self)
         GLabel_318["bg"] = "#f2f2f2"
@@ -122,8 +123,28 @@ class login(tk.Toplevel):
         GRadio_158["command"] = self.GRadio_158_command
         
 
-    def GButton_310_command(self):
-        print("iniciar")
+    def iniciar_sesion(self):
+        try:
+            usuario = self.nametowidget("usuario").get()     
+            contra = self.nametowidget("contra").get()
+
+            if usuario != "":
+                if user.validar(usuario, contra):                    
+                    usuario = user.obtener_nombre_usuario(usuario)
+                    if usuario is not None:
+                        if usuario[8] == "Administrador":
+                            ###
+                        elif usuario[8] == "Cliente":
+                            # TODO chequear el rol del usuario para abrir el menu/ventana correspondiente
+                            print("Mostrar pantalla para usuario con rol de Cliente")
+                    else:
+                        tkMsgBox.showerror(self.master.title(), "Se produjo un error al obtener los datos del usuario, reintente nuevamente")
+                else:
+                    tkMsgBox.showwarning(self.master.title(), "Usuario/Contraseña incorrecta")
+            else:
+                tkMsgBox.showwarning(self.master.title(), "Ingrese el Usuario para iniciar sesión")
+        except Exception as ex:
+            tkMsgBox.showerror(self.master.title(), str(ex))
 
 
     def GButton_410_command(self):
