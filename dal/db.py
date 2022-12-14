@@ -25,6 +25,20 @@ class Db:
     
     @staticmethod
     def crear_tablas():
+        sql_usuarios = '''CREATE TABLE IF NOT EXISTS "Usuarios" (
+                                "id"	INTEGER NOT NULL,
+                                "apellido"	TEXT,
+                                "nombre"	TEXT,
+                                "fechaNacimiento"	TEXT,
+                                "dni"	INTEGER,
+                                "mail"	TEXT,
+                                "usuario"	TEXT UNIQUE,
+                                "contraseña"	TEXT,
+                                "rolId"	INTEGER,
+                                "activo"	INTEGER NOT NULL DEFAULT 1,
+                                PRIMARY KEY("id" AUTOINCREMENT)
+                            );'''
+
         sql_butacas = '''CREATE TABLE IF NOT EXISTS "Butacas" (
 	                        "id"	INTEGER NOT NULL,
 	                        "fila"	INTEGER,
@@ -66,9 +80,9 @@ class Db:
                             "fecha"	TEXT,
                             "precio"	REAL DEFAULT 0,
                             "butacaId"	INTEGER,
-                            PRIMARY KEY("id" AUTOINCREMENT),
+                            PRIMARY KEY("id" AUTOINCREMENT)
                         );'''
-
+                    
         sql_roles = '''CREATE TABLE IF NOT EXISTS "Roles" (
                             "id"	INTEGER NOT NULL,
                             "nombre"	TEXT NOT NULL UNIQUE,
@@ -83,22 +97,8 @@ class Db:
                             "formato"	TEXT,
                             PRIMARY KEY("id" AUTOINCREMENT)
                         );'''
-
-        sql_usuarios = '''CREATE TABLE IF NOT EXISTS "Usuarios" (
-                                "id"	INTEGER NOT NULL,
-                                "apellido"	TEXT,
-                                "nombre"	TEXT,
-                                "fechaNacimiento"	TEXT,
-                                "dni"	INTEGER,
-                                "mail"	TEXT,
-                                "usuario"	TEXT UNIQUE,
-                                "contraseña"	TEXT,
-                                "rolId"	INTEGER,
-                                "activo"	INTEGER NOT NULL DEFAULT 1,
-                                PRIMARY KEY("id" AUTOINCREMENT)
-                            );'''
         
-        tablas = {"Butacas": sql_butacas, "Descuentos": sql_descuentos, "Funciones": sql_funciones, "Peliculas": sql_peliculas, "Reservas": sql_reservas, "Roles": sql_roles, "Salas": sql_salas, "Usuarios": sql_usuarios}
+        tablas = {"Usuarios": sql_usuarios, "Butacas": sql_butacas, "Descuentos": sql_descuentos, "Funciones": sql_funciones, "Peliculas": sql_peliculas, "Reservas": sql_reservas, "Roles": sql_roles, "Salas": sql_salas}
 
         with sqlite3.connect(database) as cnn:
             cursor = cnn.cursor()
@@ -109,12 +109,10 @@ class Db:
             
     @staticmethod
     def poblar_tablas():        
-        sql_roles = '''INSERT INTO Roles (RolId, Nombre) 
+        sql_roles = '''INSERT INTO Roles (id, nombre) 
                     VALUES 
                         (1, "Administrador"),
-                        (2, "Supervisor"),
-                        (3, "Operador"),
-                        (4, "Cliente");'''
+                        (2, "Cliente");'''
 
         tablas = {"Roles": sql_roles}
 
