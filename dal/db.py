@@ -24,28 +24,81 @@ class Db:
             return result
     
     @staticmethod
-    def crear_tablas():
-        sql_usuarios = '''CREATE TABLE IF NOT EXISTS "Usuarios" (
-                                "UsuarioId"	INTEGER NOT NULL,
-                                "Apellido"	VARCHAR(50),
-                                "Nombre"	VARCHAR(30),
-                                "FechaNacimiento"	VARCHAR(23),
-                                "Dni"	INTEGER,
-                                "CorreoElectronico"	VARCHAR(30),
-                                "Usuario"	VARCHAR(15) UNIQUE,
-                                "Contrasenia"	VARCHAR(100),
-                                "RolId"	INTEGER,
-                                "Activo"	INTEGER NOT NULL DEFAULT 1,
-                                PRIMARY KEY("UsuarioId" AUTOINCREMENT)
-                            );'''
-        sql_roles = '''CREATE TABLE IF NOT EXISTS "Roles" (
-                            "RolId"	INTEGER NOT NULL,
-                            "Nombre"	VARCHAR(30) NOT NULL UNIQUE,
-                            "Activo"	INTEGER NOT NULL DEFAULT 1,
-                            PRIMARY KEY("RolId")
+    def tablas():
+        sql_butacas = '''CREATE TABLE IF NOT EXISTS "Butacas" (
+	                        "id"	INTEGER NOT NULL,
+	                        "fila"	INTEGER,
+	                        "numero"	INTEGER,
+	                        "salaId"	INTEGER,
+	                        PRIMARY KEY("id" AUTOINCREMENT)
                         );'''
 
-        tablas = {"Usuarios": sql_usuarios, "Roles": sql_roles}
+        sql_descuentos = '''CREATE TABLE IF NOT EXISTS "Descuentos" (
+	                            "id"	INTEGER NOT NULL,
+	                            "dia"	TEXT,
+	                            "tasa"	REAL,
+	                            PRIMARY KEY("id" AUTOINCREMENT)
+                            );'''
+
+        sql_funciones = '''CREATE TABLE IF NOT EXISTS "Funciones" (
+                                "id"	INTEGER NOT NULL,
+                                "fecha"	TEXT,
+                                "salaId"	INTEGER,
+                                "peliculaId"	INTEGER,
+                                "hora"	TEXT,
+                                PRIMARY KEY("id" AUTOINCREMENT)
+                            );'''
+
+        sql_peliculas = '''CREATE TABLE IF NOT EXISTS "Peliculas" (
+                                "id"	INTEGER NOT NULL,
+                                "titulo"	TEXT NOT NULL,
+                                "descripcion"	TEXT,
+                                "genero"	TEXT,
+                                "actores"	TEXT,
+                                "duracion"	TEXT,
+                                PRIMARY KEY("id" AUTOINCREMENT)
+                            );'''
+
+        sql_reservas = '''CREATE TABLE IF NOT EXISTS "Reservas" (
+                            "id"	INTEGER NOT NULL,
+                            "funcionId"	INTEGER,
+                            "usuarioId"	INTEGER,
+                            "fecha"	TEXT,
+                            "precio"	REAL DEFAULT 0,
+                            "butacaId"	INTEGER,
+                            PRIMARY KEY("id" AUTOINCREMENT),
+                        );'''
+
+        sql_roles = '''CREATE TABLE IF NOT EXISTS "Roles" (
+                            "id"	INTEGER NOT NULL,
+                            "nombre"	TEXT NOT NULL UNIQUE,
+                            "activo"	INTEGER NOT NULL DEFAULT 1,
+                            PRIMARY KEY("id")
+                        );'''
+                
+        sql_salas = '''CREATE TABLE IF NOT EXISTS "Salas" (
+                            "id"	INTEGER NOT NULL,
+                            "nombre"	TEXT,
+                            "capacidad"	INTEGER DEFAULT 0,
+                            "formato"	TEXT,
+                            PRIMARY KEY("id" AUTOINCREMENT)
+                        );'''
+
+        sql_usuarios = '''CREATE TABLE IF NOT EXISTS "Usuarios" (
+                                "id"	INTEGER NOT NULL,
+                                "apellido"	TEXT,
+                                "nombre"	TEXT,
+                                "fechaNacimiento"	TEXT,
+                                "dni"	INTEGER,
+                                "mail"	TEXT,
+                                "usuario"	TEXT UNIQUE,
+                                "contraseña"	TEXT,
+                                "rolId"	INTEGER,
+                                "activo"	INTEGER NOT NULL DEFAULT 1,
+                                PRIMARY KEY("id" AUTOINCREMENT)
+                            );'''
+        
+        tablas = {"Butacas": sql_butacas, "Descuentos": sql_descuentos, "Funciones": sql_funciones, "Peliculas": sql_peliculas, "Reservas": sql_reservas, "Roles": sql_roles, "Salas": sql_salas, "Usuarios": sql_usuarios}
 
         with sqlite3.connect(database) as cnn:
             cursor = cnn.cursor()
@@ -55,7 +108,7 @@ class Db:
                 # TODO agregar commit
             
     @staticmethod
-    def poblar_tablas():        
+    def reg_tablas():        
         sql_roles = '''INSERT INTO Roles (RolId, Nombre) 
                     VALUES 
                         (1, "Administrador"),

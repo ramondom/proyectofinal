@@ -1,10 +1,11 @@
+from tkinter import *
 import tkinter as tk
 import tkinter.font as tkFont
 import tkinter.messagebox as tkMsgbox
 import string
 
-class account(tk.Toplevel):
-    def __init__(self,master = None):
+class account(Toplevel):
+    def __init__(self, master = None):
         super().__init__(master)
         self.master = master
         #setting title
@@ -12,13 +13,13 @@ class account(tk.Toplevel):
         #setting window size
         width=373
         height=505
-        screenwidth = self.winfo_screenwidth()
-        screenheight = self.winfo_screenheight()
+        screenwidth = master.winfo_screenwidth()
+        screenheight = master.winfo_screenheight()
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         self.geometry(alignstr)
         self.resizable(width=False, height=False)
 
-        etiqueta1=tk.Label(self)
+        etiqueta1= Label(self)
         etiqueta1["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta1["font"] = ft
@@ -27,7 +28,7 @@ class account(tk.Toplevel):
         etiqueta1["text"] = "registro usuario"
         etiqueta1.place(x=60,y=0,width=242,height=30)
 
-        etiqueta2=tk.Label(self)
+        etiqueta2= Label(self)
         etiqueta2["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta2["font"] = ft
@@ -36,7 +37,7 @@ class account(tk.Toplevel):
         etiqueta2["text"] = "nombre"
         etiqueta2.place(x=20,y=40,width=129,height=30)
 
-        etiqueta3=tk.Label(self)
+        etiqueta3= Label(self)
         etiqueta3["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta3["font"] = ft
@@ -45,7 +46,7 @@ class account(tk.Toplevel):
         etiqueta3["text"] = "apellido"
         etiqueta3.place(x=20,y=100,width=130,height=30)
 
-        etiqueta4=tk.Label(self)
+        etiqueta4= Label(self)
         etiqueta4["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta4["font"] = ft
@@ -54,7 +55,7 @@ class account(tk.Toplevel):
         etiqueta4["text"] = "DNi"
         etiqueta4.place(x=20,y=160,width=129,height=30)
 
-        etiqueta5=tk.Label(self)
+        etiqueta5= Label(self)
         etiqueta5["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta5["font"] = ft
@@ -63,7 +64,7 @@ class account(tk.Toplevel):
         etiqueta5["text"] = "e-mail"
         etiqueta5.place(x=20,y=220,width=128,height=30)
 
-        etiqueta6=tk.Label(self)
+        etiqueta6= Label(self)
         etiqueta6["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta6["font"] = ft
@@ -72,7 +73,7 @@ class account(tk.Toplevel):
         etiqueta6["text"] = "nombre de usuario"
         etiqueta6.place(x=20,y=280,width=128,height=30)
 
-        etiqueta7=tk.Label(self)
+        etiqueta7= Label(self)
         etiqueta7["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta7["font"] = ft
@@ -81,7 +82,7 @@ class account(tk.Toplevel):
         etiqueta7["text"] = "contraseña"
         etiqueta7.place(x=20,y=340,width=129,height=30)
 
-        etiqueta8=tk.Label(self)
+        etiqueta8= Label(self)
         etiqueta8["bg"] = "#f2f2f2"
         ft = tkFont.Font(family='calibri bold',size=12)
         etiqueta8["font"] = ft
@@ -90,7 +91,7 @@ class account(tk.Toplevel):
         etiqueta8["text"] = "conf. contraseña"
         etiqueta8.place(x=20,y=400,width=132,height=30)
 
-        btn_inicio=tk.Button(self)
+        btn_inicio= Button(self)
         btn_inicio["bg"] = "#f0f0f0"
         ft = tkFont.Font(family='calibri bold',size=12)
         btn_inicio["font"] = ft
@@ -100,7 +101,7 @@ class account(tk.Toplevel):
         btn_inicio.place(x=20,y=460,width=158,height=30)
         btn_inicio["command"] = self.btn_cancelar
 
-        btn_cancelar=tk.Button(self)
+        btn_cancelar= Button(self)
         btn_cancelar["bg"] = "#f0f0f0"
         ft = tkFont.Font(family='calibri bold',size=12)
         btn_cancelar["font"] = ft
@@ -110,7 +111,7 @@ class account(tk.Toplevel):
         btn_cancelar.place(x=190,y=460,width=161,height=30)
         btn_cancelar["command"] = self.btn_confirmar
 
-        entry_nombre=tk.Entry(self,name="name")
+        entry_nombre= Entry(self,name="name")
         entry_nombre["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_nombre["font"] = ft
@@ -119,7 +120,7 @@ class account(tk.Toplevel):
         entry_nombre["text"] = ""
         entry_nombre.place(x=170,y=40,width=181,height=30)
 
-        entry_apellido=tk.Entry(self,name="lastname")
+        entry_apellido= Entry(self,name="lastname")
         entry_apellido["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_apellido["font"] = ft
@@ -128,7 +129,7 @@ class account(tk.Toplevel):
         entry_apellido["text"] = ""
         entry_apellido.place(x=170,y=100,width=179,height=30)
 
-        entry_dni=tk.Entry(self,name="dni")
+        entry_dni= Entry(self,name="dni")
         entry_dni["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_dni["font"] = ft
@@ -137,7 +138,7 @@ class account(tk.Toplevel):
         entry_dni["text"] = ""
         entry_dni.place(x=170,y=160,width=182,height=30)
 
-        etry_correo=tk.Entry(self,name="email")
+        etry_correo= Entry(self,name="email")
         etry_correo["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         etry_correo["font"] = ft
@@ -146,7 +147,7 @@ class account(tk.Toplevel):
         etry_correo["text"] = ""
         etry_correo.place(x=170,y=220,width=180,height=30)
 
-        entry_username=tk.Entry(self,name="username")
+        entry_username= Entry(self,name="username")
         entry_username["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_username["font"] = ft
@@ -155,7 +156,7 @@ class account(tk.Toplevel):
         entry_username["text"] = ""
         entry_username.place(x=170,y=280,width=181,height=30)
 
-        entry_password=tk.Entry(self,name="password",show="*")
+        entry_password= Entry(self,name="password",show="*")
         entry_password["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_password["font"] = ft
@@ -164,7 +165,7 @@ class account(tk.Toplevel):
         entry_password["text"] = ""
         entry_password.place(x=170,y=340,width=179,height=30)
 
-        entry_cpasword=tk.Entry(self,name="password2",show="*")
+        entry_cpasword= Entry(self,name="password2",show="*")
         entry_cpasword["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_cpasword["font"] = ft

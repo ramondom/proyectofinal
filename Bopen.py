@@ -58,8 +58,8 @@ class App:
         root.destroy()
 
 if __name__ == "__main__":
-    #Db.tablas()
-    #Db.reg_tablas()
+    Db.tablas()
+    Db.reg_tablas()
     project = "cinemark"
     root = tk.Tk()
     app = App(root, project.capitalize())

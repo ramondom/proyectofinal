@@ -3,7 +3,7 @@ import tkinter.font as tkFont
 from Daccount import account
 
 class login(tk.Toplevel):
-    def __init__(self,master=None):
+    def __init__(self, master=None):
         super().__init__(master)
         self.master = master
 
@@ -12,8 +12,8 @@ class login(tk.Toplevel):
         #setting window size
         width=373
         height=505
-        screenwidth = self.winfo_screenwidth()
-        screenheight = self.winfo_screenheight()
+        screenwidth = master.winfo_screenwidth()
+        screenheight = master.winfo_screenheight()
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         self.geometry(alignstr)
         self.resizable(width=False, height=False)
@@ -46,22 +46,22 @@ class login(tk.Toplevel):
         etiqueta_b["text"] = "contraseña"
         etiqueta_b.place(x=30,y=140,width=100,height=30)
 
-        entry_user=tk.Entry(self)
+        entry_user=tk.Entry(self, name="usuario")
         entry_user["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_user["font"] = ft
         entry_user["fg"] = "#333333"
         entry_user["justify"] = "center"
-        entry_user["text"] = "Entry"
+        entry_user["text"] = ""
         entry_user.place(x=150,y=80,width=190,height=30)
 
-        entry_password=tk.Entry(self)
+        entry_password=tk.Entry(self, name ="contra", show="*")
         entry_password["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_password["font"] = ft
         entry_password["fg"] = "#333333"
         entry_password["justify"] = "center"
-        entry_password["text"] = "Entry"
+        entry_password["text"] = ""
         entry_password.place(x=150,y=140,width=190,height=30)
 
         btn_inicio=tk.Button(self)
@@ -121,7 +121,6 @@ class login(tk.Toplevel):
         GRadio_158.place(x=17,y=230,width=130,height=30)
         GRadio_158["command"] = self.GRadio_158_command
         
-        self.mainloop()
 
     def GButton_310_command(self):
         print("iniciar")
@@ -129,7 +128,7 @@ class login(tk.Toplevel):
 
     def GButton_410_command(self):
         print("crear")
-        account(self)
+        account(self.master)
 
     def GButton_404_command(self):
         print("cancelar")
