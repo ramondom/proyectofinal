@@ -24,7 +24,7 @@ class Db:
             return result
     
     @staticmethod
-    def tablas():
+    def crear_tablas():
         sql_butacas = '''CREATE TABLE IF NOT EXISTS "Butacas" (
 	                        "id"	INTEGER NOT NULL,
 	                        "fila"	INTEGER,
@@ -108,7 +108,7 @@ class Db:
                 # TODO agregar commit
             
     @staticmethod
-    def reg_tablas():        
+    def poblar_tablas():        
         sql_roles = '''INSERT INTO Roles (RolId, Nombre) 
                     VALUES 
                         (1, "Administrador"),
