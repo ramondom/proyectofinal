@@ -1,4 +1,5 @@
 from tkinter import *
+import bll.usuarios as user
 import tkinter as tk
 import tkinter.font as tkFont
 import tkinter.messagebox as tkMsgbox
@@ -174,7 +175,7 @@ class account(Toplevel):
         entry_cpasword["text"] = ""
         entry_cpasword.place(x=170,y=400,width=180,height=30)
 
-    def get_value(self,name):
+    def get_value(self, name):
         return self.nametowidget(name).get()
 
     def btn_confirmar(self):
@@ -185,6 +186,7 @@ class account(Toplevel):
         email = self.get_value("email")
         password=self.get_value("password")
         password_Conf = self.get_value("password2")
+
         if nombre == None or apellido == "" or dni == "" or user == "" or email == "" or password == "" or password_Conf == "":
             tkMsgbox.showwarning(self.title(),"todos los campos deben estar completos!")
         else:

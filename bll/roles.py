@@ -1,6 +1,6 @@
 from dal.db import Db
 
 def listar():
-    sql = "SELECT RolId, Nombre FROM Roles ORDER BY RolId;"
+    sql = "SELECT id, nombre FROM Roles ORDER BY id;"
     result = Db.consultar(sql)
     return result
