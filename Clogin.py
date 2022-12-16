@@ -25,7 +25,7 @@ class login(tk.Toplevel):
 
         etiqueta1=tk.Label(self)
         etiqueta1["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=14)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta1["font"] = ft
         etiqueta1["fg"] = "#333333"
         etiqueta1["justify"] = "center"
@@ -52,7 +52,7 @@ class login(tk.Toplevel):
 
         etiqueta4=tk.Label(self)
         etiqueta4["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta4["font"] = ft
         etiqueta4["fg"] = "#333333"
         etiqueta4["justify"] = "center"
@@ -74,7 +74,7 @@ class login(tk.Toplevel):
 
         entry_password=tk.Entry(self)
         entry_password["borderwidth"] = "1px"
-        ft = tkFont.Font(family='calibri',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         entry_password["font"] = ft
         entry_password["fg"] = "#333333"
         entry_password["justify"] = "center"
@@ -119,22 +119,12 @@ class login(tk.Toplevel):
         btn_cancelar.place(x=200,y=440,width=150,height=30)
         btn_cancelar["command"] = self.command_salir
 
-    def get_value(self,name):
-        return self.nametowidget(name).get()
-
     def command_registro(self):
-        roles_test = self.get_value("rolesc")
-        if roles_test == "cliente":
-          usermenu(self.root)
-        elif roles_test == "Cinemark Team":
-          Acces(self.root)
-        else:
-          tkMsgbox.showinfo(self.title(),"debses seleccionar un rol")
-        print("iniciar")
+        print("command")
 
 
     def command_inicio(self):
-        print("registro")
+        print("command")
         account(self.root)
 
 
