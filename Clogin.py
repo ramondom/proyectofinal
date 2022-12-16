@@ -34,7 +34,7 @@ class login(tk.Toplevel):
 
         etiqueta2=tk.Label(self)
         etiqueta2["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta2["font"] = ft
         etiqueta2["fg"] = "#333333"
         etiqueta2["justify"] = "center"
@@ -43,7 +43,7 @@ class login(tk.Toplevel):
 
         etiqueta3=tk.Label(self)
         etiqueta3["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta3["font"] = ft
         etiqueta3["fg"] = "#333333"
         etiqueta3["justify"] = "center"
@@ -65,7 +65,7 @@ class login(tk.Toplevel):
 
         entry_username=tk.Entry(self)
         entry_username["borderwidth"] = "1px"
-        ft = tkFont.Font(family='calibri ',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         entry_username["font"] = ft
         entry_username["fg"] = "#333333"
         entry_username["justify"] = "center"
@@ -83,7 +83,7 @@ class login(tk.Toplevel):
 
         btn_inicio=tk.Button(self)
         btn_inicio["bg"] = "#f0f0f0"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         btn_inicio["font"] = ft
         btn_inicio["fg"] = "#000000"
         btn_inicio["justify"] = "center"
@@ -102,7 +102,7 @@ class login(tk.Toplevel):
 
         btn_registro=tk.Button(self)
         btn_registro["bg"] = "#f0f0f0"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         btn_registro["font"] = ft
         btn_registro["fg"] = "#000000"
         btn_registro["justify"] = "center"
@@ -112,7 +112,7 @@ class login(tk.Toplevel):
 
         btn_cancelar=tk.Button(self)
         btn_cancelar["bg"] = "#f0f0f0"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         btn_cancelar["font"] = ft
         btn_cancelar["fg"] = "#000000"
         btn_cancelar["text"] = "cancelar"
