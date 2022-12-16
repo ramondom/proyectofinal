@@ -73,11 +73,5 @@ class Acces(tk.Toplevel):
 
 
     def command_acces(self):
-        password = "cinemark2022"
-        c_password = self.get_value("clave")
-        if c_password == password:
-            adminmenu(self.root)
-        else:
-            tkMsgbox.showerror(self.title(),"Contraseña incorrecta!")
         print("acces")
 
