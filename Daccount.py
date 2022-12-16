@@ -1,6 +1,5 @@
 import tkinter as tk
 import tkinter.font as tkFont
-import tkinter.messagebox as tkMsgbox
 from tkinter import ttk
 
 class account(tk.Toplevel):
