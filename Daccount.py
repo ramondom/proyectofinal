@@ -21,7 +21,7 @@ class account(tk.Toplevel):
 
         etiqueta2=tk.Label(self)
         etiqueta2["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta2["font"] = ft
         etiqueta2["fg"] = "#333333"
         etiqueta2["justify"] = "center"
@@ -30,7 +30,7 @@ class account(tk.Toplevel):
 
         etiqueta3=tk.Label(self)
         etiqueta3["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta3["font"] = ft
         etiqueta3["fg"] = "#333333"
         etiqueta3["justify"] = "center"
@@ -48,7 +48,7 @@ class account(tk.Toplevel):
 
         etiqueta5=tk.Label(self)
         etiqueta5["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta5["font"] = ft
         etiqueta5["fg"] = "#333333"
         etiqueta5["justify"] = "center"
@@ -57,7 +57,7 @@ class account(tk.Toplevel):
 
         etiqueta6=tk.Label(self)
         etiqueta6["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta6["font"] = ft
         etiqueta6["fg"] = "#333333"
         etiqueta6["justify"] = "center"
@@ -66,7 +66,7 @@ class account(tk.Toplevel):
 
         etiqueta7=tk.Label(self)
         etiqueta7["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta7["font"] = ft
         etiqueta7["fg"] = "#333333"
         etiqueta7["justify"] = "center"
@@ -75,7 +75,7 @@ class account(tk.Toplevel):
 
         etiqueta8=tk.Label(self)
         etiqueta8["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta8["font"] = ft
         etiqueta8["fg"] = "#333333"
         etiqueta8["justify"] = "center"
@@ -84,7 +84,7 @@ class account(tk.Toplevel):
 
         etiqueta9=tk.Label(self)
         etiqueta9["bg"] = "#f2f2f2"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etiqueta9["font"] = ft
         etiqueta9["fg"] = "#333333"
         etiqueta9["justify"] = "center"
@@ -97,7 +97,7 @@ class account(tk.Toplevel):
 
         btn_inicio=tk.Button(self)
         btn_inicio["bg"] = "#f0f0f0"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         btn_inicio["font"] = ft
         btn_inicio["fg"] = "#000000"
         btn_inicio["justify"] = "center"
@@ -107,7 +107,7 @@ class account(tk.Toplevel):
 
         btn_cancelar=tk.Button(self)
         btn_cancelar["bg"] = "#f0f0f0"
-        ft = tkFont.Font(family='calibri bold',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         btn_cancelar["font"] = ft
         btn_cancelar["fg"] = "#000000"
         btn_cancelar["justify"] = "center"
@@ -115,25 +115,25 @@ class account(tk.Toplevel):
         btn_cancelar.place(x=190,y=460,width=161,height=30)
         btn_cancelar["command"] = self.btn_confirmar
 
-        entry_nombre=tk.Entry(self,name="name")
+        entry_nombre=tk.Entry(self)
         entry_nombre["borderwidth"] = "1px"
-        ft = tkFont.Font(family='calibri',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         entry_nombre["font"] = ft
         entry_nombre["fg"] = "#333333"
         entry_nombre["justify"] = "center"
-        entry_nombre["text"] = ""
+        entry_nombre["text"] = "entry"
         entry_nombre.place(x=170,y=10,width=181,height=30)
 
         entry_apellido=tk.Entry(self,name="lastname")
         entry_apellido["borderwidth"] = "1px"
-        ft = tkFont.Font(family='calibri',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         entry_apellido["font"] = ft
         entry_apellido["fg"] = "#333333"
         entry_apellido["justify"] = "center"
-        entry_apellido["text"] = ""
+        entry_apellido["text"] = "entry"
         entry_apellido.place(x=170,y=70,width=179,height=30)
 
-        entry_dni=tk.Entry(self,name="dni")
+        entry_dni=tk.Entry(self)
         entry_dni["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_dni["font"] = ft
@@ -142,16 +142,16 @@ class account(tk.Toplevel):
         entry_dni["text"] = ""
         entry_dni.place(x=170,y=130,width=182,height=30)
 
-        etry_correo=tk.Entry(self,name="email")
+        etry_correo=tk.Entry(self)
         etry_correo["borderwidth"] = "1px"
-        ft = tkFont.Font(family='calibri',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         etry_correo["font"] = ft
         etry_correo["fg"] = "#333333"
         etry_correo["justify"] = "center"
-        etry_correo["text"] = ""
+        etry_correo["text"] = "entry"
         etry_correo.place(x=170,y=190,width=180,height=30)
 
-        entry_username=tk.Entry(self,name="username")
+        entry_username=tk.Entry(self)
         entry_username["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_username["font"] = ft
@@ -160,54 +160,28 @@ class account(tk.Toplevel):
         entry_username["text"] = ""
         entry_username.place(x=170,y=250,width=181,height=30)
 
-        entry_password=tk.Entry(self,name="password",show="*")
+        entry_password=tk.Entry(self,)
         entry_password["borderwidth"] = "1px"
         ft = tkFont.Font(family='calibri',size=12)
         entry_password["font"] = ft
         entry_password["fg"] = "#333333"
         entry_password["justify"] = "center"
-        entry_password["text"] = ""
+        entry_password["text"] = "entry"
         entry_password.place(x=170,y=310,width=179,height=30)
 
-        entry_cpasword=tk.Entry(self,name="password2",show="*")
+        entry_cpasword=tk.Entry(self")
         entry_cpasword["borderwidth"] = "1px"
-        ft = tkFont.Font(family='calibri',size=12)
+        ft = tkFont.Font(family='Times',size=10)
         entry_cpasword["font"] = ft
         entry_cpasword["fg"] = "#333333"
         entry_cpasword["justify"] = "center"
-        entry_cpasword["text"] = ""
+        entry_cpasword["text"] = "entry"
         entry_cpasword.place(x=170,y=370,width=180,height=30)
 
-    def get_value(self,name):
-        return self.nametowidget(name).get()
-
     def btn_confirmar(self):
-        nombre = self.get_value("name")
-        apellido = self.get_value("lastname")
-        dni = self.get_value("dni")
-        user = self.get_value("username")
-        email = self.get_value("email")
-        password=self.get_value("password")
-        print(password.isalnum())
-        password_Conf = self.get_value("password2")
-        roles_get = self.get_value("roleschoice")
-        if nombre == None or apellido == "" or dni == "" or user == "" or email == "" or password == "" or password_Conf == "":
-            tkMsgbox.showwarning(self.title(),"todos los campos deben estar completos!")
-        else:
-            if password.isalnum() and len(password) >= 8:
-                if password == password_Conf and roles_get == "cliente":
-                    tkMsgbox.showinfo(self.title(),"registro existoso")
-                elif password == password_Conf and roles_get == "Cinemark Team":
-                    tkMsgbox.showwarning(self.title(),"Si formas parte del equipo Cinemaek se te habra otorgado una claveunica para acceder a las tareas de administracion. Deseas continuar de todos modos? Si no formas parte selecciona la opcion (cliente)")
-                    tkMsgbox.showinfo(self.title(),"registro existoso")
-                else:
-                    if password != password_Conf:
-                        tkMsgbox.showerror(self.title(),"las contraseñas no coinciden")
-            else:
-                tkMsgbox.showwarning(self.title(),"la ncontraseña no debe ser menor a 8 caracteres")
-        print("confirmar")
+        print("command")
 
 
     def btn_cancelar(self):
         self.destroy()
-        print("cancelar")
+        print("command")
